@@ -1,0 +1,11 @@
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\bin\Debug\net8\knjiznica.deps.json
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\bin\Debug\net8\knjiznica.dll
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\bin\Debug\net8\knjiznica.pdb
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\knjiznica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\knjiznica.AssemblyInfoInputs.cache
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\knjiznica.AssemblyInfo.cs
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\knjiznica.csproj.CoreCompileInputs.cache
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\knjiznica.dll
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\refint\knjiznica.dll
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\knjiznica.pdb
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\ref\knjiznica.dll

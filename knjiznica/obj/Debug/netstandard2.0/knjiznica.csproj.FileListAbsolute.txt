@@ -1,0 +1,5 @@
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\netstandard2.0\knjiznica.csproj.AssemblyReference.cache
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\netstandard2.0\knjiznica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\netstandard2.0\knjiznica.AssemblyInfoInputs.cache
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\netstandard2.0\knjiznica.AssemblyInfo.cs
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\netstandard2.0\knjiznica.csproj.CoreCompileInputs.cache

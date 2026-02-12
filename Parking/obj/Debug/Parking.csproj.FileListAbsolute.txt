@@ -1,0 +1,5 @@
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\Parking\obj\Debug\Parking.csproj.AssemblyReference.cache
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\Parking\obj\Debug\Parking.Form1.resources
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\Parking\obj\Debug\Parking.Properties.Resources.resources
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\Parking\obj\Debug\Parking.csproj.GenerateResource.cache
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\Parking\obj\Debug\Parking.csproj.CoreCompileInputs.cache

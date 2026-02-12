@@ -124,7 +124,7 @@ namespace WinFormsApp1
 
                 Cena.Text = "Cena: " + c.ToString();
 
-                p.Izstopi();
+                p.Izstopi(reg);
                 aktivno.Remove(reg);
                 Aktivno.Items.Remove(s);
                 s.Dispose();

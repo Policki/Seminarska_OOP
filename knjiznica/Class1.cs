@@ -105,6 +105,7 @@ namespace knjiznica
 
     public abstract class Parkirisce
     {
+        private List<Seja> seje = new List<Seja>();
         public const int MaxKapaciteta = 2000;
         public static int StevecParkirisc { get; private set; }
 
@@ -115,6 +116,20 @@ namespace knjiznica
 
         public string Ime { get; private set; }
         public int Kapaciteta { get; private set; }
+
+        public Seja this[string registrska]
+        {
+            get
+            {
+                foreach (var seja in seje)
+                {
+                    if (seja.Vozilo.Registrska == registrska)
+                        return seja;
+                }
+
+                return null;
+            }
+        }
 
         public int Zasedeno
         {
@@ -161,11 +176,16 @@ namespace knjiznica
             Zasedeno = Zasedeno + 1;
             seja = new Seja(vozilo, ure);
             return true;
+            seje.Add(seja);
         }
 
-        public void Izstopi()
+        public void Izstopi(string registrska)
         {
             if (Zasedeno > 0) Zasedeno = Zasedeno - 1;
+             Seja s = this[registrska];
+
+    if (s != null)
+        seje.Remove(s);
         }
         public abstract Denar Cena(double ure);
 

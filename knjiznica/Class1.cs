@@ -1,5 +1,8 @@
 ﻿using System;
 
+using System;
+using System.Collections.Generic;
+
 namespace knjiznica
 {
     public enum TipVozila
@@ -11,6 +14,13 @@ namespace knjiznica
         Avtodom
     }
 
+    public interface ICena
+    {
+        Denar Cena(double ure);
+    }
+
+    public delegate void ObvestiloHandler(string sporocilo);
+
     public readonly struct Denar
     {
         public const string Valuta = "EUR";
@@ -18,8 +28,10 @@ namespace knjiznica
 
         public Denar(decimal znesek)
         {
-            if (znesek < 0) Znesek = 0;
-            else Znesek = znesek;
+            if (znesek < 0)
+                Znesek = 0;
+            else
+                Znesek = znesek;
         }
 
         public static Denar operator +(Denar a, Denar b)
@@ -44,6 +56,7 @@ namespace knjiznica
             {
                 if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("Registrska ne sme biti prazna.");
+
                 registrska = value.Trim().ToUpper();
             }
         }
@@ -55,8 +68,11 @@ namespace knjiznica
         {
             Registrska = registrska;
             Tip = tip;
-            if (visina <= 0) Visina = 1.6;
-            else Visina = visina;
+
+            if (visina <= 0)
+                Visina = 1.6;
+            else
+                Visina = visina;
         }
 
         public override string ToString()
@@ -71,11 +87,11 @@ namespace knjiznica
 
         public Vozilo Vozilo { get; private set; }
         public DateTime Vstop { get; private set; }
+        public double Ure { get; private set; }
 
         public readonly Guid Id = Guid.NewGuid();
 
         private bool koncano;
-        public double Ure { get; private set; }
 
         public Seja(Vozilo vozilo, double ure)
         {
@@ -93,6 +109,7 @@ namespace knjiznica
         public void Dispose()
         {
             if (koncano) return;
+
             koncano = true;
             GC.SuppressFinalize(this);
         }
@@ -103,9 +120,10 @@ namespace knjiznica
         }
     }
 
-    public abstract class Parkirisce
+    public abstract class Parkirisce : ICena
     {
         private List<Seja> seje = new List<Seja>();
+
         public const int MaxKapaciteta = 2000;
         public static int StevecParkirisc { get; private set; }
 
@@ -117,11 +135,13 @@ namespace knjiznica
         public string Ime { get; private set; }
         public int Kapaciteta { get; private set; }
 
+        public event ObvestiloHandler Obvestilo;
+
         public Seja this[string registrska]
         {
             get
             {
-                foreach (var seja in seje)
+                foreach (Seja seja in seje)
                 {
                     if (seja.Vozilo.Registrska == registrska)
                         return seja;
@@ -136,9 +156,12 @@ namespace knjiznica
             get { return zasedeno; }
             protected set
             {
-                if (value < 0) zasedeno = 0;
-                else if (value > Kapaciteta) zasedeno = Kapaciteta;
-                else zasedeno = value;
+                if (value < 0)
+                    zasedeno = 0;
+                else if (value > Kapaciteta)
+                    zasedeno = Kapaciteta;
+                else
+                    zasedeno = value;
             }
         }
 
@@ -161,6 +184,12 @@ namespace knjiznica
             StevecParkirisc++;
         }
 
+        protected void Sporoci(string sporocilo)
+        {
+            if (Obvestilo != null)
+                Obvestilo(sporocilo);
+        }
+
         public virtual bool Lahko(Vozilo vozilo)
         {
             return Zasedeno < Kapaciteta;
@@ -175,18 +204,28 @@ namespace knjiznica
 
             Zasedeno = Zasedeno + 1;
             seja = new Seja(vozilo, ure);
-            return true;
+
             seje.Add(seja);
+
+            Sporoci("Vozilo " + vozilo.Registrska + " je vstopilo na parkirišče " + Ime + ".");
+
+            return true;
         }
 
         public void Izstopi(string registrska)
         {
-            if (Zasedeno > 0) Zasedeno = Zasedeno - 1;
-             Seja s = this[registrska];
+            if (Zasedeno > 0)
+                Zasedeno = Zasedeno - 1;
 
-    if (s != null)
-        seje.Remove(s);
+            Seja s = this[registrska];
+
+            if (s != null)
+            {
+                seje.Remove(s);
+                Sporoci("Vozilo " + registrska + " je zapustilo parkirišče " + Ime + ".");
+            }
         }
+
         public abstract Denar Cena(double ure);
 
         protected void Dodaj(Denar z)
@@ -238,7 +277,9 @@ namespace knjiznica
 
         public override bool Lahko(Vozilo vozilo)
         {
-            if (!base.Lahko(vozilo)) return false;
+            if (!base.Lahko(vozilo))
+                return false;
+
             return vozilo.Visina <= MaxVisina;
         }
 

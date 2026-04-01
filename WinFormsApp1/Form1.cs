@@ -15,23 +15,24 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        private List<knjiznica.Parkirisce> seznam = new List<knjiznica.Parkirisce>();
-        private Dictionary<string, (knjiznica.Parkirisce p, Seja s)> aktivno
-            = new Dictionary<string, (knjiznica.Parkirisce, Seja)>();
+        private List<Parkirisce> seznam = new List<Parkirisce>();
+        private Dictionary<string, (Parkirisce p, Seja s)> aktivno =
+            new Dictionary<string, (Parkirisce, Seja)>();
 
         public Form1()
         {
             InitializeComponent();
             Napolni();
             Nastavi();
+            PoveziObvestila();
             Prikazi();
         }
 
         private void Napolni()
         {
-            seznam.Add(new Zunanje("Zunanje", 50, 1.50m));
-            seznam.Add(new Hisa("Hiša", 120, 2.20m, 2.00));
-            seznam.Add(new Kamp("Kamp", 20, 3.00m));
+            seznam.Add(new Zunanje("Zunanje", 50, 1.5m));
+            seznam.Add(new Hisa("Hiša", 120, 2.2m, 2.0));
+            seznam.Add(new Kamp("Kamp", 20, 3.0m));
         }
 
         private void Nastavi()
@@ -45,16 +46,27 @@ namespace WinFormsApp1
 
             Visina.Minimum = 1.0m;
             Visina.Maximum = 4.0m;
-            Visina.DecimalPlaces = 2;
-            Visina.Increment = 0.1m;
-            Visina.Value = 1.60m;
+            Visina.Value = 1.6m;
 
             Cena.Text = "Cena: -";
         }
 
-        private knjiznica.Parkirisce Izbrano()
+        private void PoveziObvestila()
         {
-            return (knjiznica.Parkirisce)Parkirisce.SelectedItem;
+            foreach (Parkirisce p in seznam)
+            {
+                p.Obvestilo += Obvestilo;
+            }
+        }
+
+        private void Obvestilo(string s)
+        {
+            MessageBox.Show(s);
+        }
+
+        private Parkirisce Izbrano()
+        {
+            return (Parkirisce)Parkirisce.SelectedItem;
         }
 
         private void Prihod_Click(object sender, EventArgs e)
@@ -62,39 +74,43 @@ namespace WinFormsApp1
             try
             {
                 string reg = Registrska.Text.Trim();
-                var tip = (TipVozila)TipVozila.SelectedItem;
+                TipVozila tip = (TipVozila)TipVozila.SelectedItem;
                 double vis = (double)Visina.Value;
-                decimal cena=Cas.Value;
+                double ure = (double)Cas.Value;
 
                 Vozilo v = new Vozilo(reg, tip, vis);
-                
+
                 if (aktivno.ContainsKey(v.Registrska))
                 {
-                    MessageBox.Show("Vozilo je že notri.");
+                    MessageBox.Show("To vozilo je že noter.");
                     return;
                 }
 
+                Parkirisce p = Izbrano();
                 Seja s;
-                double ure = (double)Cas.Value;
-                bool ok = Izbrano().Vstopi(v, ure, out s);
+
+                bool ok = p.Vstopi(v, ure, out s);
 
                 if (!ok || s == null)
                 {
-                    MessageBox.Show("Ni mogoèe vstopiti (ni prostora ali omejitev).");
+                    MessageBox.Show("Ni možno vstopiti.");
                     return;
                 }
 
-                aktivno[v.Registrska] = (Izbrano(), s);
+                aktivno[v.Registrska] = (p, s);
                 Aktivno.Items.Add(s);
 
+                MessageBox.Show("Dodano vozilo. ID: " + s.Id);
+
                 Cena.Text = "Cena: -";
+
+                Prikazi();
+                Pocisti();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            Prikazi();
-            Pocisti();
         }
 
         private void Izhod_Click(object sender, EventArgs e)
@@ -103,7 +119,7 @@ namespace WinFormsApp1
             {
                 if (Aktivno.SelectedItem == null)
                 {
-                    MessageBox.Show("Izberi sejo.");
+                    MessageBox.Show("Izberi nekaj.");
                     return;
                 }
 
@@ -112,23 +128,32 @@ namespace WinFormsApp1
 
                 if (!aktivno.ContainsKey(reg))
                 {
-                    MessageBox.Show("Seje ni v slovarju.");
+                    MessageBox.Show("Napaka.");
                     return;
                 }
 
                 var zapis = aktivno[reg];
-                var p = zapis.p;
+                Parkirisce p = zapis.p;
 
-                double ure = s.Ure;   
-                Denar c = p.Cena(ure);
+                ICena cenik = p;
+                Denar c = cenik.Cena(s.Ure);
 
-                Cena.Text = "Cena: " + c.ToString();
+                Cena.Text = "Cena: " + c;
+
+                string podatki =
+                    "Parkiranje:\n" +
+                    "Reg: " + s.Vozilo.Registrska + "\n" +
+                    "Ure: " + s.Ure + "\n" +
+                    "Cena: " + c + "\n";
 
                 p.Izstopi(reg);
                 aktivno.Remove(reg);
                 Aktivno.Items.Remove(s);
                 s.Dispose();
 
+                MessageBox.Show(podatki);
+
+                Prikazi();
             }
             catch (Exception ex)
             {
@@ -140,20 +165,28 @@ namespace WinFormsApp1
         {
             if (Parkirisce.SelectedItem == null) return;
 
-            var p = Izbrano();
+            Parkirisce p = Izbrano();
             int prosto = knjiznica.Parkirisce.Prosto(p);
 
-            Stanje.Text =
-                "Izbrano: " + p.ToString() + Environment.NewLine +
-                "Prosto: " + prosto + Environment.NewLine +
-                "Parkirišèa: " + knjiznica.Parkirisce.StevecParkirisc + Environment.NewLine +
+            string txt =
+                "Parkirišèe: " + p.Ime + "\n" +
+                "Zasedeno: " + p.Zasedeno + "/" + p.Kapaciteta + "\n" +
+                "Prosto: " + prosto + "\n" +
+                "Prihodek: " + p.Prihodek + "\n" +
                 "Seje: " + Seja.StevecSej;
+
+            if (p is Hisa h)
+            {
+                txt += "\nMax višina: " + h.MaxVisina;
+            }
+
+            Stanje.Text = txt;
         }
 
         private void Pocisti()
         {
             Registrska.Clear();
-            Visina.Value = 1.60m;
+            Visina.Value = 1.6m;
             Cas.Value = 1;
         }
 
@@ -161,14 +194,23 @@ namespace WinFormsApp1
         {
             Prikazi();
         }
+
+        private void Aktivno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Aktivno.SelectedItem == null) return;
+
+            Seja s = (Seja)Aktivno.SelectedItem;
+
+            Cena.Text = "Izbrano: " + s.Vozilo.Registrska;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            Prikazi();
         }
 
         private void Cena_Click(object sender, EventArgs e)
         {
-            
         }
     }
 }

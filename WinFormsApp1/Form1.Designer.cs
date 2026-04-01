@@ -34,20 +34,14 @@
             Registrska = new TextBox();
             Visina = new NumericUpDown();
             Cas = new NumericUpDown();
-            Kwh = new NumericUpDown();
-            Voda = new NumericUpDown();
             Prihod = new Button();
             Izhod = new Button();
             Stanje = new Label();
             Cena = new Label();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)Visina).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Cas).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Kwh).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Voda).BeginInit();
             SuspendLayout();
             // 
             // Aktivno
@@ -95,20 +89,6 @@
             Cas.Name = "Cas";
             Cas.Size = new Size(204, 23);
             Cas.TabIndex = 5;
-            // 
-            // Kwh
-            // 
-            Kwh.Location = new Point(281, 224);
-            Kwh.Name = "Kwh";
-            Kwh.Size = new Size(204, 23);
-            Kwh.TabIndex = 6;
-            // 
-            // Voda
-            // 
-            Voda.Location = new Point(281, 267);
-            Voda.Name = "Voda";
-            Voda.Size = new Size(204, 23);
-            Voda.TabIndex = 7;
             // 
             // Prihod
             // 
@@ -166,39 +146,17 @@
             label2.TabIndex = 13;
             label2.Text = "Čas:";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(281, 206);
-            label3.Name = "label3";
-            label3.Size = new Size(33, 15);
-            label3.TabIndex = 14;
-            label3.Text = "Kwh:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(281, 250);
-            label4.Name = "label4";
-            label4.Size = new Size(36, 15);
-            label4.TabIndex = 15;
-            label4.Text = "Voda:";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label4);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(Cena);
             Controls.Add(Stanje);
             Controls.Add(Izhod);
             Controls.Add(Prihod);
-            Controls.Add(Voda);
-            Controls.Add(Kwh);
             Controls.Add(Cas);
             Controls.Add(Visina);
             Controls.Add(Registrska);
@@ -210,8 +168,6 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)Visina).EndInit();
             ((System.ComponentModel.ISupportInitialize)Cas).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Kwh).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Voda).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -224,15 +180,11 @@
         private TextBox Registrska;
         private NumericUpDown Visina;
         private NumericUpDown Cas;
-        private NumericUpDown Kwh;
-        private NumericUpDown Voda;
         private Button Prihod;
         private Button Izhod;
         private Label Stanje;
         private Label Cena;
         private Label label1;
         private Label label2;
-        private Label label3;
-        private Label label4;
     }
 }

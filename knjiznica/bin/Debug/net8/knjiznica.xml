@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>knjiznica</name>
+    </assembly>
+    <members>
+        <member name="M:knjiznica.Denar.#ctor(System.Decimal)">
+            <summary>
+            Ustvari nov denarni znesek in prepreči negativno vrednost.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Denar.op_Addition(knjiznica.Denar,knjiznica.Denar)">
+            <summary>
+            Sešteje dva denarna zneska.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Denar.ToString">
+            <summary>
+            Vrne nizovno predstavitev denarnega zneska z valuto.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Vozilo.#ctor(System.String,knjiznica.TipVozila,System.Double)">
+            <summary>
+            Ustvari novo vozilo z registrsko oznako, tipom in višino.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Vozilo.ToString">
+            <summary>
+            Vrne osnovni opis vozila.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Seja.#ctor(knjiznica.Vozilo,System.Double)">
+            <summary>
+            Ustvari novo parkirno sejo za podano vozilo.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Seja.Finalize">
+            <summary>
+            Sprosti vire seje ob uničenju objekta.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Seja.Dispose">
+            <summary>
+            Zaključi sejo in prepreči ponovno čiščenje.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Seja.ToString">
+            <summary>
+            Vrne opis seje z registrsko oznako in časom vstopa.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Parkirisce.#ctor(System.String,System.Int32)">
+            <summary>
+            Ustvari novo parkirišče z imenom in kapaciteto.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Parkirisce.Sporoci(System.String)">
+            <summary>
+            Sproži obvestilo naročenim poslušalcem.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Parkirisce.Lahko(knjiznica.Vozilo)">
+            <summary>
+            Preveri, ali lahko vozilo vstopi na parkirišče.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Parkirisce.Vstopi(knjiznica.Vozilo,System.Double,knjiznica.Seja@)">
+            <summary>
+            Poskusi sprejeti vozilo na parkirišče in ustvari novo sejo.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Parkirisce.Izstopi(System.String)">
+            <summary>
+            Odstrani vozilo s parkirišča glede na registrsko oznako.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Parkirisce.Cena(System.Double)">
+            <summary>
+            Izračuna ceno parkiranja za podano število ur.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Parkirisce.Dodaj(knjiznica.Denar)">
+            <summary>
+            Doda znesek k skupnemu prihodku parkirišča.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Parkirisce.Prosto(knjiznica.Parkirisce)">
+            <summary>
+            Vrne število prostih mest na parkirišču.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Parkirisce.ToString">
+            <summary>
+            Vrne osnovni opis parkirišča in njegove zasedenosti.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Zunanje.#ctor(System.String,System.Int32,System.Decimal)">
+            <summary>
+            Ustvari zunanje parkirišče z določeno urno postavko.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Zunanje.Cena(System.Double)">
+            <summary>
+            Izračuna ceno parkiranja na zunanjem parkirišču.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Hisa.#ctor(System.String,System.Int32,System.Decimal,System.Double)">
+            <summary>
+            Ustvari parkirno hišo z urno postavko in omejitvijo višine.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Hisa.Lahko(knjiznica.Vozilo)">
+            <summary>
+            Preveri, ali vozilo izpolnjuje pogoje za vstop v hišo.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Hisa.Cena(System.Double)">
+            <summary>
+            Izračuna ceno parkiranja v parkirni hiši.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Kamp.#ctor(System.String,System.Int32,System.Decimal)">
+            <summary>
+            Ustvari kamp parkirišče z določeno urno postavko.
+            </summary>
+        </member>
+        <member name="M:knjiznica.Kamp.Cena(System.Double)">
+            <summary>
+            Izračuna ceno parkiranja v kampu.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\Seminarska_OOP\\knjiznica\\knjiznica.csproj": {}
+    "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\knjiznica\\knjiznica.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\Seminarska_OOP\\knjiznica\\knjiznica.csproj": {
+    "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\knjiznica\\knjiznica.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\Seminarska_OOP\\knjiznica\\knjiznica.csproj",
+        "projectUniqueName": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\knjiznica\\knjiznica.csproj",
         "projectName": "knjiznica",
-        "projectPath": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\Seminarska_OOP\\knjiznica\\knjiznica.csproj",
+        "projectPath": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\knjiznica\\knjiznica.csproj",
         "packagesPath": "C:\\Users\\nekdo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\Seminarska_OOP\\knjiznica\\obj\\",
+        "outputPath": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\knjiznica\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

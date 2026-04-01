@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0DE6AC90-932D-4A21-8CDC-E5AC96FA6B0B}|WinFormsApp1\\WinFormsApp1.csproj|C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\winformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0DE6AC90-932D-4A21-8CDC-E5AC96FA6B0B}|WinFormsApp1\\WinFormsApp1.csproj|solutionrelative:winformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{155A901F-7BA2-4394-A3CE-11C130C7A3C5}|knjiznica\\knjiznica.csproj|c:\\users\\nekdo\\documents\\visualstudionaloge\\seminarska_oop\\knjiznica\\knjiznica.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{155A901F-7BA2-4394-A3CE-11C130C7A3C5}|knjiznica\\knjiznica.csproj|solutionrelative:knjiznica\\knjiznica.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{155A901F-7BA2-4394-A3CE-11C130C7A3C5}|knjiznica\\knjiznica.csproj|c:\\users\\nekdo\\documents\\visualstudionaloge\\seminarska_oop\\knjiznica\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{155A901F-7BA2-4394-A3CE-11C130C7A3C5}|knjiznica\\knjiznica.csproj|solutionrelative:knjiznica\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DE6AC90-932D-4A21-8CDC-E5AC96FA6B0B}|WinFormsApp1\\WinFormsApp1.csproj|c:\\users\\nekdo\\documents\\visualstudionaloge\\seminarska_oop\\winformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0DE6AC90-932D-4A21-8CDC-E5AC96FA6B0B}|WinFormsApp1\\WinFormsApp1.csproj|solutionrelative:winformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0DE6AC90-932D-4A21-8CDC-E5AC96FA6B0B}|WinFormsApp1\\WinFormsApp1.csproj|c:\\users\\nekdo\\documents\\visualstudionaloge\\seminarska_oop\\winformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,8 +26,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "knjiznica",
+              "DocumentMoniker": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\knjiznica\\knjiznica.csproj",
+              "RelativeDocumentMoniker": "knjiznica\\knjiznica.csproj",
+              "ToolTip": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\knjiznica\\knjiznica.csproj",
+              "RelativeToolTip": "knjiznica\\knjiznica.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-01T12:39:12.22Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -32,27 +48,27 @@
               "RelativeDocumentMoniker": "knjiznica\\Class1.cs",
               "ToolTip": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\knjiznica\\Class1.cs",
               "RelativeToolTip": "knjiznica\\Class1.cs",
-              "ViewState": "AgIAABYBAAAAAAAAAAAAwCkBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAwwCUBAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-12T17:06:04.525Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\WinFormsApp1\\Form1.cs",
               "RelativeDocumentMoniker": "WinFormsApp1\\Form1.cs",
               "ToolTip": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\WinFormsApp1\\Form1.cs",
               "RelativeToolTip": "WinFormsApp1\\Form1.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwDEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAMYAAAAAAAAAAADgv9kAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-13T16:08:51.612Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\nekdo\\Documents\\VisualStudioNaloge\\seminarska_OOP\\WinFormsApp1\\Form1.cs",
               "RelativeDocumentMoniker": "WinFormsApp1\\Form1.cs",

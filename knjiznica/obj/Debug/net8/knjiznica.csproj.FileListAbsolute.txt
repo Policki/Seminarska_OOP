@@ -9,3 +9,4 @@ C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\n
 C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\refint\knjiznica.dll
 C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\knjiznica.pdb
 C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\ref\knjiznica.dll
+C:\Users\nekdo\Documents\VisualStudioNaloge\seminarska_OOP\knjiznica\obj\Debug\net8\knjiznica.sourcelink.json

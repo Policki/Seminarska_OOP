@@ -26,6 +26,9 @@ namespace knjiznica
         public const string Valuta = "EUR";
         public decimal Znesek { get; }
 
+        /// <summary>
+        /// Ustvari nov denarni znesek in prepreči negativno vrednost.
+        /// </summary>
         public Denar(decimal znesek)
         {
             if (znesek < 0)
@@ -34,11 +37,17 @@ namespace knjiznica
                 Znesek = znesek;
         }
 
+        /// <summary>
+        /// Sešteje dva denarna zneska.
+        /// </summary>
         public static Denar operator +(Denar a, Denar b)
         {
             return new Denar(a.Znesek + b.Znesek);
         }
 
+        /// <summary>
+        /// Vrne nizovno predstavitev denarnega zneska z valuto.
+        /// </summary>
         public override string ToString()
         {
             return Znesek.ToString("0.00") + " " + Valuta;
@@ -64,6 +73,9 @@ namespace knjiznica
         public TipVozila Tip { get; private set; }
         public double Visina { get; private set; }
 
+        /// <summary>
+        /// Ustvari novo vozilo z registrsko oznako, tipom in višino.
+        /// </summary>
         public Vozilo(string registrska, TipVozila tip, double visina)
         {
             Registrska = registrska;
@@ -75,6 +87,9 @@ namespace knjiznica
                 Visina = visina;
         }
 
+        /// <summary>
+        /// Vrne osnovni opis vozila.
+        /// </summary>
         public override string ToString()
         {
             return Registrska + " (" + Tip + ")";
@@ -93,6 +108,9 @@ namespace knjiznica
 
         private bool koncano;
 
+        /// <summary>
+        /// Ustvari novo parkirno sejo za podano vozilo.
+        /// </summary>
         public Seja(Vozilo vozilo, double ure)
         {
             Vozilo = vozilo;
@@ -101,11 +119,17 @@ namespace knjiznica
             StevecSej++;
         }
 
+        /// <summary>
+        /// Sprosti vire seje ob uničenju objekta.
+        /// </summary>
         ~Seja()
         {
             StevecSej--;
         }
 
+        /// <summary>
+        /// Zaključi sejo in prepreči ponovno čiščenje.
+        /// </summary>
         public void Dispose()
         {
             if (koncano) return;
@@ -114,6 +138,9 @@ namespace knjiznica
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Vrne opis seje z registrsko oznako in časom vstopa.
+        /// </summary>
         public override string ToString()
         {
             return Vozilo.Registrska + " | vstop: " + Vstop.ToString("HH:mm:ss");
@@ -171,6 +198,9 @@ namespace knjiznica
             protected set { prihodek = value; }
         }
 
+        /// <summary>
+        /// Ustvari novo parkirišče z imenom in kapaciteto.
+        /// </summary>
         protected Parkirisce(string ime, int kapaciteta)
         {
             if (kapaciteta <= 0 || kapaciteta > MaxKapaciteta)
@@ -184,17 +214,26 @@ namespace knjiznica
             StevecParkirisc++;
         }
 
+        /// <summary>
+        /// Sproži obvestilo naročenim poslušalcem.
+        /// </summary>
         protected void Sporoci(string sporocilo)
         {
             if (Obvestilo != null)
                 Obvestilo(sporocilo);
         }
 
+        /// <summary>
+        /// Preveri, ali lahko vozilo vstopi na parkirišče.
+        /// </summary>
         public virtual bool Lahko(Vozilo vozilo)
         {
             return Zasedeno < Kapaciteta;
         }
 
+        /// <summary>
+        /// Poskusi sprejeti vozilo na parkirišče in ustvari novo sejo.
+        /// </summary>
         public bool Vstopi(Vozilo vozilo, double ure, out Seja seja)
         {
             seja = null;
@@ -212,6 +251,9 @@ namespace knjiznica
             return true;
         }
 
+        /// <summary>
+        /// Odstrani vozilo s parkirišča glede na registrsko oznako.
+        /// </summary>
         public void Izstopi(string registrska)
         {
             if (Zasedeno > 0)
@@ -226,18 +268,30 @@ namespace knjiznica
             }
         }
 
+        /// <summary>
+        /// Izračuna ceno parkiranja za podano število ur.
+        /// </summary>
         public abstract Denar Cena(double ure);
 
+        /// <summary>
+        /// Doda znesek k skupnemu prihodku parkirišča.
+        /// </summary>
         protected void Dodaj(Denar z)
         {
             Prihodek = Prihodek + z;
         }
 
+        /// <summary>
+        /// Vrne število prostih mest na parkirišču.
+        /// </summary>
         public static int Prosto(Parkirisce p)
         {
             return p.Kapaciteta - p.Zasedeno;
         }
 
+        /// <summary>
+        /// Vrne osnovni opis parkirišča in njegove zasedenosti.
+        /// </summary>
         public override string ToString()
         {
             return Ime + " (" + Zasedeno + "/" + Kapaciteta + ")";
@@ -248,12 +302,18 @@ namespace knjiznica
     {
         private decimal naUro;
 
+        /// <summary>
+        /// Ustvari zunanje parkirišče z določeno urno postavko.
+        /// </summary>
         public Zunanje(string ime, int kapaciteta, decimal naUro)
             : base(ime, kapaciteta)
         {
             this.naUro = naUro;
         }
 
+        /// <summary>
+        /// Izračuna ceno parkiranja na zunanjem parkirišču.
+        /// </summary>
         public override Denar Cena(double ure)
         {
             int u = (int)Math.Ceiling(ure);
@@ -268,6 +328,9 @@ namespace knjiznica
         private decimal naUro;
         public double MaxVisina { get; private set; }
 
+        /// <summary>
+        /// Ustvari parkirno hišo z urno postavko in omejitvijo višine.
+        /// </summary>
         public Hisa(string ime, int kapaciteta, decimal naUro, double maxVisina)
             : base(ime, kapaciteta)
         {
@@ -275,6 +338,9 @@ namespace knjiznica
             MaxVisina = maxVisina;
         }
 
+        /// <summary>
+        /// Preveri, ali vozilo izpolnjuje pogoje za vstop v hišo.
+        /// </summary>
         public override bool Lahko(Vozilo vozilo)
         {
             if (!base.Lahko(vozilo))
@@ -283,6 +349,9 @@ namespace knjiznica
             return vozilo.Visina <= MaxVisina;
         }
 
+        /// <summary>
+        /// Izračuna ceno parkiranja v parkirni hiši.
+        /// </summary>
         public override Denar Cena(double ure)
         {
             int u = (int)Math.Ceiling(ure);
@@ -296,12 +365,18 @@ namespace knjiznica
     {
         private decimal naUro;
 
+        /// <summary>
+        /// Ustvari kamp parkirišče z določeno urno postavko.
+        /// </summary>
         public Kamp(string ime, int kapaciteta, decimal naUro)
             : base(ime, kapaciteta)
         {
             this.naUro = naUro;
         }
 
+        /// <summary>
+        /// Izračuna ceno parkiranja v kampu.
+        /// </summary>
         public override Denar Cena(double ure)
         {
             int u = (int)Math.Ceiling(ure);

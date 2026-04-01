@@ -40,6 +40,7 @@
             Cena = new Label();
             label1 = new Label();
             label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)Visina).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Cas).BeginInit();
             SuspendLayout();
@@ -71,21 +72,21 @@
             // 
             // Registrska
             // 
-            Registrska.Location = new Point(281, 83);
+            Registrska.Location = new Point(281, 104);
             Registrska.Name = "Registrska";
             Registrska.Size = new Size(204, 23);
             Registrska.TabIndex = 3;
             // 
             // Visina
             // 
-            Visina.Location = new Point(281, 133);
+            Visina.Location = new Point(281, 154);
             Visina.Name = "Visina";
             Visina.Size = new Size(204, 23);
             Visina.TabIndex = 4;
             // 
             // Cas
             // 
-            Cas.Location = new Point(281, 180);
+            Cas.Location = new Point(281, 201);
             Cas.Name = "Cas";
             Cas.Size = new Size(204, 23);
             Cas.TabIndex = 5;
@@ -131,7 +132,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(282, 116);
+            label1.Location = new Point(282, 137);
             label1.Name = "label1";
             label1.Size = new Size(41, 15);
             label1.TabIndex = 12;
@@ -140,17 +141,28 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(281, 162);
+            label2.Location = new Point(281, 183);
             label2.Name = "label2";
             label2.Size = new Size(29, 15);
             label2.TabIndex = 13;
             label2.Text = "Čas:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(282, 86);
+            label3.Name = "label3";
+            label3.Size = new Size(111, 15);
+            label3.TabIndex = 14;
+            label3.Text = "Registerska številka:";
+            label3.Click += label3_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(Cena);
@@ -186,5 +198,6 @@
         private Label Cena;
         private Label label1;
         private Label label2;
+        private Label label3;
     }
 }
